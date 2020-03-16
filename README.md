@@ -1,2 +1,2 @@
-# ssmdemo
-SpringMVC+Spring+Mybatis 整合Demo
+# awt
+SpringMVC+Spring+Mybatis 示例
