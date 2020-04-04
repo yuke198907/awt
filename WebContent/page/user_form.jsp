@@ -21,7 +21,8 @@ List<RoleInfo> roles = (List<RoleInfo>)request.getSession().getAttribute("ROLES"
 <link rel="stylesheet" href="<%=contextPath %>/bgui/public/css/vendor/font_awesome/css/font-awesome.css">
 <script src="<%=contextPath %>/bgui/public/js/vendor/jquery.min.js"></script>
 
-
+</head>
+<body>
 <div class="content_wrapper">
 
     <div class="container-fluid">
