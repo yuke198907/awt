@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致
+	
+ -->
+<mapper namespace="com.simpo.tracker.web.role.dao.RoleDao">
+	
+	<select id="list" resultType="com.simpo.tracker.web.role.entity.RoleInfo" parameterType="com.simpo.tracker.web.role.entity.RoleInfo">
+		select * from role_info where 1=1 
+		<if test="rolename!=null and rolename!=''">and rolename like #{rolename} </if>
+		order by roleno desc
+	</select>	
+	
+	<select id="count" resultType="int" parameterType="com.simpo.tracker.web.role.entity.RoleInfo">
+		select count(1) from role_info where 1=1 
+		<if test="rolename!=null and rolename!=''">and rolename like #{rolename} </if>
+	</select>
+	
+	<select id="findInfoById" parameterType="Long" resultType="com.simpo.tracker.web.role.entity.RoleInfo">
+		select * from role_info where id=#{id}
+	</select>
+	
+	<insert id="add" parameterType="com.simpo.tracker.web.role.entity.RoleInfo">
+		insert into role_info (roleno,rolename,permission,remark)
+		values (#{roleno},#{rolename},#{permission},#{remark})
+	</insert>
+	
+	<delete id="delete">
+		delete from role_info where id=#{id}
+	</delete>
+	
+	<update id="update" parameterType="com.simpo.tracker.web.role.entity.RoleInfo">
+		update role_info set roleno=#{roleno},rolename=#{rolename},permission=#{permission},remark=#{remark} where id=#{id}
+	</update>
+	
+</mapper>
