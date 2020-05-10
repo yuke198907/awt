@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 
+	namespace：必须与对应的接口全类名一致
+	id:必须与对应接口的某个对应的方法名一致
+	
+ -->
+<mapper namespace="com.simpo.tracker.web.product.dao.TkglDao">
+	
+	<select id="list" resultType="com.simpo.tracker.web.product.entity.TkglInfo" parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
+		select r.* from tkgl_info r where r.xcid=#{xcid} 
+		<if test="filetype!=null and filetype!=''">and r.filetype = #{filetype} </if>
+		order by r.cjsj desc
+	</select>	
+	
+	<select id="count" resultType="int" parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
+		select count(1) from tkgl_info r where r.xcid=#{xcid}
+		<if test="filetype!=null and filetype!=''">and r.filetype = #{filetype} </if>
+	</select>
+	
+	<select id="findInfoById" parameterType="Long" resultType="com.simpo.tracker.web.product.entity.TkglInfo">
+		select * from tkgl_info where id=#{id}
+	</select>
+	
+	<insert id="add" parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
+		insert into tkgl_info (xcid,tkseq,tkpic,cjsj,filetype,videopath,videoname)
+		values (#{xcid},#{tkseq},#{tkpic},#{cjsj},#{filetype},#{videopath},#{videoname})
+	</insert>
+	
+	<delete id="delete">
+		delete from tkgl_info where id=#{id}
+	</delete>
+	
+	<update id="updateVideo" parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
+		update tkgl_info set videopath=#{videopath},videoname=#{videoname} where id=#{id}
+	</update>
+</mapper>
