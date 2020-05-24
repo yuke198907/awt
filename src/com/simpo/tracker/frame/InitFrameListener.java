@@ -40,8 +40,7 @@ public class InitFrameListener implements ApplicationContextAware, ServletContex
 	public void setApplicationContext(ApplicationContext ac)
 			throws BeansException {
 		// TODO Auto-generated method stub
-		//将BAK文件夹还原
-		
+
 	}
 
 }
