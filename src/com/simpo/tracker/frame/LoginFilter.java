@@ -23,8 +23,6 @@ public class LoginFilter implements Filter {
 	private String loginPath = "";
 	private String loginAction = "";
 
-	// private LoginServlet loginServlet;
-
 	public void destroy() {
 	}
 
