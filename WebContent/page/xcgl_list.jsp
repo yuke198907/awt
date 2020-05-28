@@ -86,8 +86,6 @@
                                 var id = '"' + data.id + '"';  
                                 var html = "<a href='javascript:;' class='btn btn-info btn-xs' onclick='editOne("+ id + ")'>编辑相册</a>";
                                 html += "<a href='javascript:;' class='btn btn-warning btn-xs' onclick='deleteOne("+ id + ")'>删除相册</a>";
-                                html += "<a href='javascript:;' class='btn btn-default btn-xs' onclick='uploadGallay("+ id + ",1)'>上传视频缩略图</a>";
-                                html += "<a href='javascript:;' class='btn btn-danger btn-xs' onclick='deleteGallay("+ id + ",1)'>管理相册视频</a>";
                                 html += "<a href='javascript:;' class='btn btn-success btn-xs' onclick='uploadGallay("+ id + ",0)'>上传相册图片</a>";
                                 html += "<a href='javascript:;' class='btn btn-danger btn-xs' onclick='deleteGallay("+ id + ",0)'>管理相册图片</a>";
                                 return html;  
