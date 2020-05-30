@@ -20,9 +20,7 @@ public class DateTools {
 	 */
 	public static String getDateString(Date date,String format){
 		SimpleDateFormat yfm = new SimpleDateFormat(format);
-		String year="";
-		year=yfm.format(date);
-		return year;
+		return yfm.format(date);
 	}
 	
 	/**
