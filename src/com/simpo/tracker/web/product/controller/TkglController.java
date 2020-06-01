@@ -142,64 +142,6 @@ public class TkglController {
         SystemUtil.writeJson(result, response);
     }
 	
-	@RequestMapping(value="/uploadVideo.do")
-    @SystemControllerLog(description = "更新相册视频")
-    public void saveVideo(HttpServletRequest request, HttpServletResponse response) {
-    	String tkid = request.getParameter("tkid");
-        String result = "{\"result\":\"0\",\"message\":\"\"}";
-        
-        MultipartHttpServletRequest Murequest = (MultipartHttpServletRequest)request;
-        Map<String, MultipartFile> files = Murequest.getFileMap();//得到文件map对象
-        
-        TkglInfo info = tkglService.findInfoById(Long.valueOf(tkid));
-        
-		if(files != null && files.size() == 1 && info != null){
-			
-			String video_old = info.getVideopath();
-			
-			for(MultipartFile myfile :files.values()){
-				try {
-					// 这里不必处理IO流关闭的问题,因为FileUtils.copyInputStreamToFile()方法内部会自动把用到的IO流关掉
-					// 此处也可以使用Spring提供的MultipartFile.transferTo(File
-					// dest)方法实现文件的上传
-					
-					String video_new = info.getXcid()+"_"+DateTools.getDateString(new Date(), "yyyyMMddHHmmss")+"_" + myfile.getOriginalFilename();
-					
-					FileUtils.copyInputStreamToFile(myfile.getInputStream(), new File(request.getSession().getServletContext().getRealPath("/awt/"+info.getXcid()+"/"), video_new));
-					//备份
-					FileUtils.copyInputStreamToFile(myfile.getInputStream(), new File(bakPath+"/awt/"+info.getXcid()+"/", video_new));
-					
-					info.setVideopath(video_new);
-					info.setVideoname(myfile.getOriginalFilename());
-					
-					int row = tkglService.updateVideo(info);
-					
-					if(row == 1){
-						//删除原文件
-						if(video_old != null && !"".equals(video_old)){
-							deleteFile(request.getSession().getServletContext().getRealPath("/awt/"+info.getXcid()+"/")+video_old);
-							deleteFile(bakPath+"/awt/"+info.getXcid()+"/"+video_old);//删除备份
-						}
-						
-						result = "{\"result\":\"1\",\"message\":\"" + video_new + "\"}";
-					}else{
-						//数据库保存失败，删除新删除的文件
-						deleteFile(request.getSession().getServletContext().getRealPath("/awt/"+info.getXcid()+"/")+video_new);
-						deleteFile(bakPath+"/awt/"+info.getXcid()+"/"+video_new);//删除备份
-						result = "{\"result\":\"0\",\"message\":\"" + video_old + "\"}";
-					}
-
-				} catch (IOException e) {
-					result = "{\"result\":\"0\",\"message\":\"上传失败！\"}";
-				}
-			}
-		}else{
-			result = "{\"result\":\"0\",\"message\":\"文件错误！\"}";
-		}
-        
-        SystemUtil.writeJson(result, response);
-    }
-	
 	private void deleteFile(String localFileName) {
 		//localFileName = localFileName.replace("\\", "/");
 		File localFile = new File(localFileName);
