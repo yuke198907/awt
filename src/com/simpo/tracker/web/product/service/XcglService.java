@@ -19,6 +19,5 @@ public interface XcglService {
 	public int delete(long id);
 	
 	public int updatePic(long id, String pic);
-	
-	public int updateVideo(long id, String video);
+
 }

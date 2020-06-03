@@ -97,20 +97,5 @@ public class XcglServiceImpl implements XcglService {
 		}
 		return 0;
 	}
-	
-	@Override
-	public int updateVideo(long id, String video) {
-		// TODO Auto-generated method stub
-		if(id > 0 && video != null && !"".equals(video)){
-			try {
-				xcglDao.updateVideo(id, video);
-				return 1;
-			} catch (Exception e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}
-		return 0;
-	}
-	
+
 }
