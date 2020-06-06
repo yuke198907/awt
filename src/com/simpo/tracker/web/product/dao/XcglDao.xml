@@ -40,8 +40,5 @@
 	<update id="updatePic">
 		update xcgl_info set pic=#{pic} where id=#{id}
 	</update>
-	
-	<update id="updateVideo">
-		update xcgl_info set video=#{video} where id=#{id}
-	</update>
+
 </mapper>

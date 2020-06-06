@@ -20,6 +20,5 @@ public interface XcglDao {
 	public void update(XcglInfo info) throws Exception;
 	
 	public void updatePic(@Param("id")long id, @Param("pic")String pic) throws Exception;
-	
-	public void updateVideo(@Param("id")long id, @Param("video")String video) throws Exception;
+
 }
