@@ -133,6 +133,7 @@ public class UserController {
 		UserInfo info = userService.findInfoById(Long.valueOf(id));
 		
 		List<RoleInfo> roles = roleService.list(false, null, null, null);
+
 		request.getSession().setAttribute("ROLES", roles);
 		
 		request.setAttribute("info", info);
