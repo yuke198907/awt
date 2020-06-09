@@ -53,15 +53,6 @@ public class TkglController {
 		SystemUtil.writeJson(output, response);
 	}
 	
-	@RequestMapping("/find.do")
-	@SystemControllerLog(description = "查看")  
-	public String find(HttpServletRequest request, HttpServletResponse response){
-		String id = request.getParameter("id");
-		TkglInfo info = tkglService.findInfoById(Long.valueOf(id));
-		request.setAttribute("info", info);
-		return "/page/xcgl_form_video.jsp";
-	}
-	
 	@RequestMapping("/delete.do")
 	@SystemControllerLog(description = "删除")  
 	public void delete(HttpServletRequest request, HttpServletResponse response){
