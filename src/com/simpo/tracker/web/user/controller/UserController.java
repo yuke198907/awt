@@ -85,11 +85,11 @@ public class UserController {
 		SystemUtil.writeHTML(row+"", response);
 	}
 	
-	@RequestMapping("/add.do")
+	/*@RequestMapping("/add.do")
 	@SystemControllerLog(description = "用户管理/新增信息")  
 	public void add(UserInfo info, HttpServletRequest request, HttpServletResponse response){
 		//username,loginname,password,orgname,phone,remark
-		/*String username = request.getParameter("username");
+		*//*String username = request.getParameter("username");
 		String loginname = request.getParameter("loginname");
 		String orgname = request.getParameter("orgname");
 		String phone = request.getParameter("phone");
@@ -101,12 +101,12 @@ public class UserController {
 		info.setOrgname(orgname);
 		info.setPhone(phone);
 		info.setUsername(username);
-		info.setRemark(remark);*/
+		info.setRemark(remark);*//*
 		info.setPassword(MD5Util.MD5("000000"));
 		
 		int row = userService.add(info);
 		SystemUtil.writeHTML(row+"", response);
-	}
+	}*/
 	
 	@RequestMapping("/update.do")
 	@SystemControllerLog(description = "用户管理/编辑信息")  
