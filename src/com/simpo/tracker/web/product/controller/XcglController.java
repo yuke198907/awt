@@ -173,12 +173,12 @@ public class XcglController {
 	private void deleteFile(String localFileName) {
 		//localFileName = localFileName.replace("\\", "/");
 		File localFile = new File(localFileName);
-		boolean flag = false;
+		//boolean flag = false;
 		if(localFile.isFile()&&localFile.exists()){
 			//log.debug("localFile-Path-"+localFile.getPath()+"Ab "+localFile.getAbsolutePath());
 			//log.debug("localFile-File-"+localFile+"Ab "+localFile.getAbsoluteFile());
 			//log.debug("localFileName--"+localFileName);
-			flag = localFile.getAbsoluteFile().delete();
+			localFile.getAbsoluteFile().delete();
 		}
 		//log.debug("文件" + localFileName + "是否删除成功：" + flag);
 	}
