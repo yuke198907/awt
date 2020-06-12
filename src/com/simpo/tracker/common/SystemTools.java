@@ -80,8 +80,8 @@ public class SystemTools
 		return new String(value.getBytes("ISO8859-1"), encoding);
 	}
 	
-	public static void main(String args[])
+	/*public static void main(String args[])
 	{
 		System.out.println(SystemTools.getInstance().getProperty("system.properties", "ischeck"));
-	}
+	}*/
 }
