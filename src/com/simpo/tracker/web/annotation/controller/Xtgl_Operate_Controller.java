@@ -22,11 +22,9 @@ import net.sf.json.JSONArray;
 @Controller
 @RequestMapping("/operate")
 public class Xtgl_Operate_Controller {
-	
-	
+
 	@Autowired
 	private Xtgl_Operate_Service operateService;
-
 
 	/**
 	 * 操作日志查询列表
