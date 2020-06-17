@@ -15,6 +15,4 @@ public interface TkglService {
 	public int add(TkglInfo info);
 	
 	public int delete(long id);
-	
-	public int updateVideo(TkglInfo info);
 }

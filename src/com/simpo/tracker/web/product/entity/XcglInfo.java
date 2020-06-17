@@ -7,7 +7,6 @@ public class XcglInfo {
 	private int zt = 0;//0-ok,1-no
 	private String xcseq = "";
 	private String pic = "";
-	private String video = "";
 	private String cjsj = "";
 	private String gxsj = "";
 	
@@ -46,12 +45,6 @@ public class XcglInfo {
 	}
 	public void setPic(String pic) {
 		this.pic = pic;
-	}
-	public String getVideo() {
-		return video;
-	}
-	public void setVideo(String video) {
-		this.video = video;
 	}
 	public String getCjsj() {
 		return cjsj;

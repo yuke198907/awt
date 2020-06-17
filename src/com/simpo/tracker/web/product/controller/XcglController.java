@@ -84,10 +84,7 @@ public class XcglController {
 		if(row == 1){
 			deleteFile(request.getSession().getServletContext().getRealPath("/awt/")+info.getPic());
 			deleteFile(bakPath+"/awt/"+info.getPic());//删除备份
-			
-			deleteFile(request.getSession().getServletContext().getRealPath("/awt/")+info.getVideo());
-			deleteFile(bakPath+"/awt/"+info.getVideo());//删除备份
-			
+
 			//删除相册文件
 			FileUtils.deleteDirectory(new File(request.getSession().getServletContext().getRealPath("/awt/"+id)));
 			FileUtils.deleteDirectory(new File(bakPath+"/awt/"+id));

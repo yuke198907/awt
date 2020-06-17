@@ -64,8 +64,6 @@ public class TkglController {
 			if("1".equals(info.getFiletype())){
 				deleteFile(request.getSession().getServletContext().getRealPath("/awt/"+info.getXcid()+"/")+info.getTkpic());
 				deleteFile(bakPath+"/awt/"+info.getXcid()+"/"+info.getTkpic());//删除缩略图备份
-				deleteFile(request.getSession().getServletContext().getRealPath("/awt/"+info.getXcid()+"/")+info.getVideopath());
-				deleteFile(bakPath+"/awt/"+info.getXcid()+"/"+info.getVideopath());//删除视频备份
 			}else{
 				deleteFile(request.getSession().getServletContext().getRealPath("/awt/"+info.getXcid()+"/")+info.getTkpic());
 				deleteFile(bakPath+"/awt/"+info.getXcid()+"/"+info.getTkpic());//删除备份

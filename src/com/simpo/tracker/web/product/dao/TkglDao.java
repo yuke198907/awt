@@ -14,6 +14,4 @@ public interface TkglDao {
 	public void add(TkglInfo info) throws Exception;
 	
 	public void delete(long id) throws Exception;
-	
-	public void updateVideo(TkglInfo info) throws Exception;
 }

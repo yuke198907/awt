@@ -70,17 +70,4 @@ public class TkglServiceImpl implements TkglService {
 		return 0;
 	}
 
-	@Override
-	public int updateVideo(TkglInfo info) {
-		// TODO Auto-generated method stub
-		try {
-			tkglDao.updateVideo(info);
-			return 1;
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return 0;
-	}
-
 }

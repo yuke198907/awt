@@ -7,8 +7,6 @@ public class TkglInfo {
 	private String tkpic = "";
 	private String cjsj = "";
 	private String filetype = "";
-	private String videopath = "";
-	private String videoname = "";
 	
 	public long getId() {
 		return id;
@@ -45,17 +43,5 @@ public class TkglInfo {
 	}
 	public void setFiletype(String filetype) {
 		this.filetype = filetype;
-	}
-	public String getVideopath() {
-		return videopath;
-	}
-	public void setVideopath(String videopath) {
-		this.videopath = videopath;
-	}
-	public String getVideoname() {
-		return videoname;
-	}
-	public void setVideoname(String videoname) {
-		this.videoname = videoname;
 	}
 }

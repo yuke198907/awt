@@ -24,15 +24,12 @@
 	</select>
 	
 	<insert id="add" parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
-		insert into tkgl_info (xcid,tkseq,tkpic,cjsj,filetype,videopath,videoname)
-		values (#{xcid},#{tkseq},#{tkpic},#{cjsj},#{filetype},#{videopath},#{videoname})
+		insert into tkgl_info (xcid,tkseq,tkpic,cjsj,filetype)
+		values (#{xcid},#{tkseq},#{tkpic},#{cjsj},#{filetype})
 	</insert>
 	
 	<delete id="delete">
 		delete from tkgl_info where id=#{id}
 	</delete>
-	
-	<update id="updateVideo" parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
-		update tkgl_info set videopath=#{videopath},videoname=#{videoname} where id=#{id}
-	</update>
+
 </mapper>
