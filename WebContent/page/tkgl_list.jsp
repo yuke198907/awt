@@ -70,11 +70,7 @@ if(ftype == null){
 						divStr = divStr + '</div>';
 						divStr = divStr + '<div class="listinfo">';
 						divStr = divStr + '<div class="listtitle">'+datas[i].tkseq+'</div>';
-						<%if("1".equals(ftype)){ %>
-						divStr = divStr + '<div class="listtag"><a href="javascript:editOne('+datas[i].id+');" rel="tag">视频设置</a><a href="javascript:deleteOne('+datas[i].id+');" rel="tag">删除</a></div>';
-						<%}else{ %>
 						divStr = divStr + '<div class="listtag"><a href="javascript:deleteOne('+datas[i].id+');" rel="tag">删除</a></div>';
-						<%} %>
 						divStr = divStr + '</div>';
 						divStr = divStr + '</li>';
 						
@@ -117,9 +113,9 @@ if(ftype == null){
     	}
     }
     
-    function editOne(id){
+    /*function editOne(id){
     	loadURL("/tkgl/find.do?id="+id);
-    }
+    }*/
     
     function back(){
     	loadURL("/page/xcgl_list.jsp");

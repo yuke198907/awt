@@ -39,7 +39,7 @@ if(ftype == null){
         <div class="row">
             <div class="col-sm-12">
                 <aside>
-                    <header><i class="fa fa-fw fa-file"></i>上传<%if("1".equals(ftype)){ %>视频缩略图<%}else{ %>相册图片<%} %>&nbsp;<button type="button" onclick="back();" class="btn btn-warning">返回列表</button></header>
+                    <header><i class="fa fa-fw fa-file"></i>上传相册图片<button type="button" onclick="back();" class="btn btn-warning">返回列表</button></header>
                     <section>
                         <div class="container-fluid">
                             <div id="uploader" class="wu-example" style="width:1000px;height:600px;">
