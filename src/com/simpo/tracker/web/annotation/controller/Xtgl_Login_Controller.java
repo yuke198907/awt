@@ -22,11 +22,9 @@ import net.sf.json.JSONArray;
 @Controller
 @RequestMapping("/login")
 public class Xtgl_Login_Controller {
-	
-	
+
 	@Autowired
 	private Xtgl_Login_Service loginService;
-
 
 	/**
 	 * 登录日志查询列表
