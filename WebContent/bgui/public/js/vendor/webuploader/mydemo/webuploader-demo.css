@@ -5,7 +5,7 @@
 .element-invisible {
     position: absolute !important;
     clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
-    clip: rect(1px,1px,1px,1px);
+    clip: rect(1px, 1px, 1px, 1px);
 }
 
 #uploader .placeholder {
@@ -22,9 +22,9 @@
 #uploader .placeholder .webuploader-pick {
     font-size: 14px;
     background: #009f6c;
-    border:1px solid #00855a;
+    border: 1px solid #00855a;
     border-radius: 4px;
-    height:34px;
+    height: 34px;
     line-height: 34px;
     padding: 0 30px;
     color: #fff;
@@ -36,7 +36,7 @@
 
 #uploader .placeholder .webuploader-pick-hover {
     background: #006c49;
-    border:1px solid #004831;
+    border: 1px solid #004831;
 }
 
 #uploader .placeholder .flashTip {
@@ -47,10 +47,12 @@
     text-align: center;
     bottom: 20px;
 }
+
 #uploader .placeholder .flashTip a {
     color: #0785d1;
     text-decoration: none;
 }
+
 #uploader .placeholder .flashTip a:hover {
     text-decoration: underline;
 }
@@ -103,15 +105,15 @@
     width: 100%;
     overflow: hidden;
     white-space: nowrap;
-    text-overflow : ellipsis;
+    text-overflow: ellipsis;
     top: 5px;
     text-indent: 5px;
     text-align: left;
 }
 
 #uploader .filelist li p.progress {
-    /*TODO: ÔÝÊ±ÎÞ·¨¸üÐÂ½ø¶ÈÌõ£¬ËùÒÔÏÈÒþ²Ø*/
-    display:none;
+    /*TODO: ï¿½ï¿½Ê±ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
+    display: none;
     position: absolute;
     width: 100%;
     bottom: 0;
@@ -120,6 +122,7 @@
     overflow: hidden;
     z-index: 50;
 }
+
 #uploader .filelist li p.progress span {
     display: none;
     overflow: hidden;
@@ -150,6 +153,7 @@
         background-position: 17px 0;
     }
 }
+
 @-moz-keyframes progressmove {
     0% {
         background-position: 0 0;
@@ -158,6 +162,7 @@
         background-position: 17px 0;
     }
 }
+
 @keyframes progressmove {
     0% {
         background-position: 0 0;
@@ -219,8 +224,8 @@
 #uploader .filelist div.file-panel {
     position: absolute;
     height: 0;
-    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#80000000', endColorstr='#80000000')\0;
-    background: rgba( 0, 0, 0, 0.5 );
+    filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr='#80000000', endColorstr='#80000000') \0;
+    background: rgba(0, 0, 0, 0.5);
     width: 100%;
     top: 0;
     left: 0;
@@ -243,6 +248,7 @@
 #uploader .filelist div.file-panel span.rotateLeft {
     background-position: 0 -24px;
 }
+
 #uploader .filelist div.file-panel span.rotateLeft:hover {
     background-position: 0 0;
 }
@@ -250,6 +256,7 @@
 #uploader .filelist div.file-panel span.rotateRight {
     background-position: -24px -24px;
 }
+
 #uploader .filelist div.file-panel span.rotateRight:hover {
     background-position: -24px 0;
 }
@@ -257,6 +264,7 @@
 #uploader .filelist div.file-panel span.cancel {
     background-position: -48px -24px;
 }
+
 #uploader .filelist div.file-panel span.cancel:hover {
     background-position: -48px 0;
 }
@@ -283,6 +291,7 @@
     position: relative;
     margin-right: 10px;
 }
+
 #uploader .statusBar .progress span.percentage {
     width: 0;
     height: 100%;
@@ -291,6 +300,7 @@
     background: #1483d8;
     position: absolute;
 }
+
 #uploader .statusBar .progress span.text {
     position: relative;
     z-index: 10;
@@ -329,6 +339,7 @@
     font-size: 14px;
     float: left;
 }
+
 #uploader .statusBar .btns .webuploader-pick-hover,
 #uploader .statusBar .btns .uploadBtn:hover,
 #uploader .statusBar .btns .uploadBtn.state-uploading:hover,
@@ -341,6 +352,7 @@
     color: #fff;
     border-color: transparent;
 }
+
 #uploader .statusBar .btns .uploadBtn:hover {
     background: #006c49;
 }

@@ -10,9 +10,9 @@
     position: relative;
     overflow: hidden;
     -webkit-user-select: none;
-       -moz-user-select: none;
-        -ms-user-select: none;
-            user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
     background-color: #fff;
 
     -webkit-tap-highlight-color: transparent;
@@ -43,8 +43,8 @@
     width: 100%;
     height: 100%;
     -webkit-box-sizing: border-box;
-       -moz-box-sizing: border-box;
-            box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
     overflow: hidden;
     border-color: #69f;
     border-color: rgba(51, 102, 255, .75);

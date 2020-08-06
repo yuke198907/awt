@@ -23,41 +23,42 @@ import net.sf.json.JSONArray;
 @RequestMapping("/login")
 public class Xtgl_Login_Controller {
 
-	@Autowired
-	private Xtgl_Login_Service loginService;
+    @Autowired
+    private Xtgl_Login_Service loginService;
 
-	/**
-	 * 登录日志查询列表
-	 * @param request
-	 * @return
-	 */
-	@RequestMapping("/list.do")
-	@SystemControllerLog(description = "登录日志查询/列表查询")  
-	public void list(Xtgl_Login_Info info, HttpServletRequest request, HttpServletResponse response){
-		String pageNo = request.getParameter("start");
-		String pageSize = request.getParameter("length");
-		
-		//UserInfo user = (UserInfo) request.getSession().getAttribute("USERINFO");
-		
-		if(pageNo == null){
-			pageNo = PagerUtils.pageNo;
-		}
-		if(pageSize == null){
-			pageSize = PagerUtils.pageSize;
-		}
-		
-		if(info.getUsername() != null && !"".equals(info.getUsername())){
-			info.setUsername("%"+info.getUsername()+"%");
-		}
-		
-		String output = "";
-		List<Xtgl_Login_Info> list = loginService.list(((IntegerTools.parseInt(pageNo)/IntegerTools.parseInt(pageSize))+1)+"",pageSize,info);
-		JSONArray json = JSONArray.fromObject(list);
-		
-		int count =loginService.count(info);
-		
-		output = "{\"recordsTotal\":" + count + ",\"rows\":" + json.toString() + "}";
-		SystemUtil.writeJson(output, response);
-	}
-	
+    /**
+     * 登录日志查询列表
+     *
+     * @param request
+     * @return
+     */
+    @RequestMapping("/list.do")
+    @SystemControllerLog(description = "登录日志查询/列表查询")
+    public void list(Xtgl_Login_Info info, HttpServletRequest request, HttpServletResponse response) {
+        String pageNo = request.getParameter("start");
+        String pageSize = request.getParameter("length");
+
+        //UserInfo user = (UserInfo) request.getSession().getAttribute("USERINFO");
+
+        if (pageNo == null) {
+            pageNo = PagerUtils.pageNo;
+        }
+        if (pageSize == null) {
+            pageSize = PagerUtils.pageSize;
+        }
+
+        if (info.getUsername() != null && !"".equals(info.getUsername())) {
+            info.setUsername("%" + info.getUsername() + "%");
+        }
+
+        String output = "";
+        List<Xtgl_Login_Info> list = loginService.list(((IntegerTools.parseInt(pageNo) / IntegerTools.parseInt(pageSize)) + 1) + "", pageSize, info);
+        JSONArray json = JSONArray.fromObject(list);
+
+        int count = loginService.count(info);
+
+        output = "{\"recordsTotal\":" + count + ",\"rows\":" + json.toString() + "}";
+        SystemUtil.writeJson(output, response);
+    }
+
 }

@@ -67,12 +67,12 @@
             'break,case,catch,continue,debugger,default,delete,do,else,false'
             + ',finally,for,function,if,in,instanceof,new,null,return,switch,this'
             + ',throw,true,try,typeof,var,void,while,with'
-                // 保留字
+            // 保留字
             + ',abstract,boolean,byte,char,class,const,double,enum,export,extends'
             + ',final,float,goto,implements,import,int,interface,long,native'
             + ',package,private,protected,public,short,static,super,synchronized'
             + ',throws,transient,volatile'
-                // ECMA 5 - use strict
+            // ECMA 5 - use strict
             + ',arguments,let,yield'
             + ',undefined';
 
@@ -127,9 +127,9 @@
                     return;
                 }
                 var val = '';
-                if(name ==='$cat'){
+                if (name === '$cat') {
                     return;
-                }else if (name === 'include') {
+                } else if (name === 'include') {
                     val = "function(id,data){var data=data||$data;var txt=$methods.$include(id,data);$cat+=txt;}";
                 } else if (methods[name]) {
                     val = "$methods." + name;

@@ -33,9 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 
-if ( !empty($_REQUEST[ 'debug' ]) ) {
-    $random = rand(0, intval($_REQUEST[ 'debug' ]) );
-    if ( $random === 0 ) {
+if (!empty($_REQUEST['debug'])) {
+    $random = rand(0, intval($_REQUEST['debug']));
+    if ($random === 0) {
         header("HTTP/1.0 500 Internal Server Error");
         exit;
     }
@@ -79,7 +79,7 @@ if (isset($_REQUEST["name"])) {
 $md5File = @file('md5list2.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 $md5File = $md5File ? $md5File : array();
 
-if (isset($_REQUEST["md5"]) && array_search($_REQUEST["md5"], $md5File ) !== FALSE ) {
+if (isset($_REQUEST["md5"]) && array_search($_REQUEST["md5"], $md5File) !== FALSE) {
     die('{"jsonrpc" : "2.0", "result" : null, "id" : "id", "exist": 1}');
 }
 
@@ -152,20 +152,20 @@ if (!$chunks || $chunk == $chunks - 1) {
     file_put_contents('md5list2.txt', join($md5File, "\n"));
 }
 
-function mymd5( $file ) {
+function mymd5($file)
+{
     $fragment = 65536;
 
     $rh = fopen($file, 'rb');
     $size = filesize($file);
 
-    $part1 = fread( $rh, $fragment );
-    fseek($rh, $size-$fragment);
-    $part2 = fread( $rh, $fragment);
+    $part1 = fread($rh, $fragment);
+    fseek($rh, $size - $fragment);
+    $part2 = fread($rh, $fragment);
     fclose($rh);
 
-    return md5( $part1.$part2 );
+    return md5($part1 . $part2);
 }
-
 
 
 // Return Success JSON-RPC response

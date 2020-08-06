@@ -47,15 +47,15 @@ if (preg_match("#^data:image/(\w+);base64,(.*)$#", $src, $matches)) {
         $type = 'jpg';
     }
 
-    $filename = md5($base64).".$type";
-    $filePath = $DIR.DIRECTORY_SEPARATOR.$filename;
+    $filename = md5($base64) . ".$type";
+    $filePath = $DIR . DIRECTORY_SEPARATOR . $filename;
 
     if (file_exists($filePath)) {
-        die('{"jsonrpc" : "2.0", "result" : "'.$previewUrl.'preview/'.$filename.'", "id" : "id"}');
+        die('{"jsonrpc" : "2.0", "result" : "' . $previewUrl . 'preview/' . $filename . '", "id" : "id"}');
     } else {
         $data = base64_decode($base64);
         file_put_contents($filePath, $data);
-        die('{"jsonrpc" : "2.0", "result" : "'.$previewUrl.'preview/'.$filename.'", "id" : "id"}');
+        die('{"jsonrpc" : "2.0", "result" : "' . $previewUrl . 'preview/' . $filename . '", "id" : "id"}');
     }
 
 } else {

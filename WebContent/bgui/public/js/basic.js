@@ -10,6 +10,7 @@ function checkURL() {
         loadURL(common_conf.defaultHash);
     }
 }
+
 function loadURL(url) {
     var content = $('#content');
     var target = common_conf.baseURL + url;
@@ -47,6 +48,7 @@ function loadURL(url) {
         }
     })
 }
+
 checkURL();
 $(document).on("click", 'nav a[href="#"]', function (e) {
     e.preventDefault();

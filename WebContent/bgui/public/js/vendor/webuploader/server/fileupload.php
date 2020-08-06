@@ -35,9 +35,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'OPTIONS') {
 }
 
 
-if ( !empty($_REQUEST[ 'debug' ]) ) {
-    $random = rand(0, intval($_REQUEST[ 'debug' ]) );
-    if ( $random === 0 ) {
+if (!empty($_REQUEST['debug'])) {
+    $random = rand(0, intval($_REQUEST['debug']));
+    if ($random === 0) {
         header("HTTP/1.0 500 Internal Server Error");
         exit;
     }
@@ -143,19 +143,19 @@ rename("{$filePath}_{$chunk}.parttmp", "{$filePath}_{$chunk}.part");
 
 $index = 0;
 $done = true;
-for( $index = 0; $index < $chunks; $index++ ) {
-    if ( !file_exists("{$filePath}_{$index}.part") ) {
+for ($index = 0; $index < $chunks; $index++) {
+    if (!file_exists("{$filePath}_{$index}.part")) {
         $done = false;
         break;
     }
 }
-if ( $done ) {
+if ($done) {
     if (!$out = @fopen($uploadPath, "wb")) {
         die('{"jsonrpc" : "2.0", "error" : {"code": 102, "message": "Failed to open output stream."}, "id" : "id"}');
     }
 
-    if ( flock($out, LOCK_EX) ) {
-        for( $index = 0; $index < $chunks; $index++ ) {
+    if (flock($out, LOCK_EX)) {
+        for ($index = 0; $index < $chunks; $index++) {
             if (!$in = @fopen("{$filePath}_{$index}.part", "rb")) {
                 break;
             }

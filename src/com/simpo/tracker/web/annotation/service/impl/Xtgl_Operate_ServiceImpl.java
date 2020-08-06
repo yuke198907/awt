@@ -20,41 +20,42 @@ import com.simpo.tracker.web.annotation.service.Xtgl_Operate_Service;
 @Service
 @Transactional  //此处不再进行创建SqlSession和提交事务，都已交由spring去管理了。
 public class Xtgl_Operate_ServiceImpl extends SqlSessionDaoSupport implements Xtgl_Operate_Service {
-	@Resource
-	private Xtgl_Operate_Dao operateDao;
-	private SqlSessionFactory sqlSessionFactory;
-	@Resource
-	public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory){
-		super.setSqlSessionFactory(sqlSessionFactory);
-		this.sqlSessionFactory = sqlSessionFactory;
-	}
-	
-	@Override
-	public void save(Xtgl_Operate_Info info) {
-		// TODO Auto-generated method stub
-		SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.SIMPLE);
-		try {
-			sqlSession.insert("com.simpo.tracker.web.annotation.dao.Xtgl_Operate_Dao.save", info);
-			sqlSession.commit();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}finally{
-			sqlSession.close(); 
-		}
-	}
+    @Resource
+    private Xtgl_Operate_Dao operateDao;
+    private SqlSessionFactory sqlSessionFactory;
 
-	@Override
-	public List<Xtgl_Operate_Info> list(String pageNo, String pageSize,
-			Xtgl_Operate_Info info) {
-		// TODO Auto-generated method stub
-		//PageHelper.startPage(IntegerTools.parseInt(pageNo),IntegerTools.parseInt(pageSize));
-		return operateDao.list(info);
-	}
+    @Resource
+    public void setSqlSessionFactory(SqlSessionFactory sqlSessionFactory) {
+        super.setSqlSessionFactory(sqlSessionFactory);
+        this.sqlSessionFactory = sqlSessionFactory;
+    }
 
-	@Override
-	public int count(Xtgl_Operate_Info info) {
-		// TODO Auto-generated method stub
-		return operateDao.count(info);
-	}
+    @Override
+    public void save(Xtgl_Operate_Info info) {
+        // TODO Auto-generated method stub
+        SqlSession sqlSession = sqlSessionFactory.openSession(ExecutorType.SIMPLE);
+        try {
+            sqlSession.insert("com.simpo.tracker.web.annotation.dao.Xtgl_Operate_Dao.save", info);
+            sqlSession.commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            sqlSession.close();
+        }
+    }
+
+    @Override
+    public List<Xtgl_Operate_Info> list(String pageNo, String pageSize,
+                                        Xtgl_Operate_Info info) {
+        // TODO Auto-generated method stub
+        //PageHelper.startPage(IntegerTools.parseInt(pageNo),IntegerTools.parseInt(pageSize));
+        return operateDao.list(info);
+    }
+
+    @Override
+    public int count(Xtgl_Operate_Info info) {
+        // TODO Auto-generated method stub
+        return operateDao.count(info);
+    }
 
 }
