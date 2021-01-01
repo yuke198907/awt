@@ -1,0 +1,525 @@
+Index: build/classes/com/simpo/tracker/web/role/dao/RoleDao.xml
+===================================================================
+diff --git a/build/classes/com/simpo/tracker/web/role/dao/RoleDao.xml b/build/classes/com/simpo/tracker/web/role/dao/RoleDao.xml
+deleted file mode 100644
+--- a/build/classes/com/simpo/tracker/web/role/dao/RoleDao.xml	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,41 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<!-- 
+-	namespace：必须与对应的接口全类名一致
+-	id:必须与对应接口的某个对应的方法名一致
+-	
+- -->
+-<mapper namespace="com.simpo.tracker.web.role.dao.RoleDao">
+-
+-    <select id="list" resultType="com.simpo.tracker.web.role.entity.RoleInfo"
+-            parameterType="com.simpo.tracker.web.role.entity.RoleInfo">
+-        select * from role_info where 1=1
+-        <if test="rolename!=null and rolename!=''">and rolename like #{rolename}</if>
+-        order by roleno desc
+-    </select>
+-
+-    <select id="count" resultType="int" parameterType="com.simpo.tracker.web.role.entity.RoleInfo">
+-        select count(1) from role_info where 1=1
+-        <if test="rolename!=null and rolename!=''">and rolename like #{rolename}</if>
+-    </select>
+-
+-    <select id="findInfoById" parameterType="Long" resultType="com.simpo.tracker.web.role.entity.RoleInfo">
+-        select * from role_info where id=#{id}
+-    </select>
+-
+-    <insert id="add" parameterType="com.simpo.tracker.web.role.entity.RoleInfo">
+-        insert into role_info (roleno,rolename,permission,remark)
+-        values (#{roleno},#{rolename},#{permission},#{remark})
+-    </insert>
+-
+-    <delete id="delete">
+-        delete from role_info where id=#{id}
+-    </delete>
+-
+-    <update id="update" parameterType="com.simpo.tracker.web.role.entity.RoleInfo">
+-        update role_info set roleno=#{roleno},rolename=#{rolename},permission=#{permission},remark=#{remark} where
+-        id=#{id}
+-    </update>
+-
+-</mapper>
+\ No newline at end of file
+Index: build/classes/com/simpo/tracker/web/annotation/dao/Xtgl_Operate_Dao.xml
+===================================================================
+diff --git a/build/classes/com/simpo/tracker/web/annotation/dao/Xtgl_Operate_Dao.xml b/build/classes/com/simpo/tracker/web/annotation/dao/Xtgl_Operate_Dao.xml
+deleted file mode 100644
+--- a/build/classes/com/simpo/tracker/web/annotation/dao/Xtgl_Operate_Dao.xml	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,31 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<!-- 
+-	namespace：必须与对应的接口全类名一致
+-	id:必须与对应接口的某个对应的方法名一致
+-	
+- -->
+-<mapper namespace="com.simpo.tracker.web.annotation.dao.Xtgl_Operate_Dao">
+-
+-    <insert id="save" parameterType="com.simpo.tracker.web.annotation.entity.Xtgl_Operate_Info">
+-        insert into log_operate(CZR,CZSJ,METHOD,DESCRIPTION)
+-        values (#{czr},#{czsj},#{method},#{description})
+-    </insert>
+-
+-    <!-- 列表 -->
+-    <select id="list" resultType="com.simpo.tracker.web.annotation.entity.Xtgl_Operate_Info"
+-            parameterType="com.simpo.tracker.web.annotation.entity.Xtgl_Operate_Info">
+-        select t.*,u.username from log_operate t left join user_info u on t.czr=u.id
+-        where 1=1
+-        <if test="username!=null and username!=''">and u.username like #{username}</if>
+-        order by t.czsj desc
+-    </select>
+-
+-    <select id="count" resultType="int" parameterType="com.simpo.tracker.web.annotation.entity.Xtgl_Operate_Info">
+-        select count(1) from log_operate t left join user_info u on t.czr=u.id
+-        where 1=1
+-        <if test="username!=null and username!=''">and u.username like #{username}</if>
+-    </select>
+-
+-</mapper>
+\ No newline at end of file
+Index: build/classes/config/log4j.properties
+===================================================================
+diff --git a/build/classes/config/log4j.properties b/build/classes/config/log4j.properties
+deleted file mode 100644
+--- a/build/classes/config/log4j.properties	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,21 +0,0 @@
+-log4j.rootCategory=info,A1,R
+-log4j.logger.com.simpo.tracker=debug,R
+-log4j.appender.A1=org.apache.log4j.ConsoleAppender
+-log4j.appender.A1.layout=org.apache.log4j.PatternLayout
+-log4j.appender.A1.layout.ConversionPattern=[%-5p] %l - %m%n
+-log4j.appender.R=org.apache.log4j.DailyRollingFileAppender
+-#windows
+-log4j.appender.R.File=${catalina.home}/logs/awt.log
+-log4j.appender.R.DatePattern='.'yyyy-MM-dd
+-log4j.appender.R.layout=org.apache.log4j.PatternLayout
+-log4j.appender.R.layout.ConversionPattern=%-d{yyyy-MM-dd HH:mm:ss} [%c]-[%p] %m%n
+-#debug
+-log4j.logger.com.ibatis=debug
+-log4j.logger.com.ibatis.common.jdbc.SimpleDataSource=debug
+-log4j.logger.com.ibatis.common.jdbc.ScriptRunner=debug
+-log4j.logger.com.ibatis.sqlmap.engine.impl.SqlMapClientDelegate=debug
+-#debug
+-log4j.logger.java.sql.Connection=debug
+-log4j.logger.java.sql.Statement=debug
+-log4j.logger.java.sql.PreparedStatement=debug
+- 
+\ No newline at end of file
+Index: build/classes/com/simpo/tracker/web/annotation/dao/Xtgl_Login_Dao.xml
+===================================================================
+diff --git a/build/classes/com/simpo/tracker/web/annotation/dao/Xtgl_Login_Dao.xml b/build/classes/com/simpo/tracker/web/annotation/dao/Xtgl_Login_Dao.xml
+deleted file mode 100644
+--- a/build/classes/com/simpo/tracker/web/annotation/dao/Xtgl_Login_Dao.xml	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,31 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<!-- 
+-	namespace：必须与对应的接口全类名一致
+-	id:必须与对应接口的某个对应的方法名一致
+-	
+- -->
+-<mapper namespace="com.simpo.tracker.web.annotation.dao.Xtgl_Login_Dao">
+-
+-    <insert id="save" parameterType="com.simpo.tracker.web.annotation.entity.Xtgl_Login_Info">
+-        insert into log_login(loginname,logintime,issuccess,ipaddress,userid)
+-        values(#{loginname},#{logintime},#{issuccess},#{ipaddress},#{userid})
+-    </insert>
+-
+-    <!-- 列表 -->
+-    <select id="list" resultType="com.simpo.tracker.web.annotation.entity.Xtgl_Login_Info"
+-            parameterType="com.simpo.tracker.web.annotation.entity.Xtgl_Login_Info">
+-        select t.*,u.username from log_login t left join user_info u on t.userid=u.id
+-        where 1=1
+-        <if test="username!=null and username!=''">and u.username like #{username}</if>
+-        order by t.logintime desc
+-    </select>
+-
+-    <select id="count" resultType="int" parameterType="com.simpo.tracker.web.annotation.entity.Xtgl_Login_Info">
+-        select count(1) from log_login t left join user_info u on t.userid=u.id
+-        where 1=1
+-        <if test="username!=null and username!=''">and u.username like #{username}</if>
+-    </select>
+-
+-</mapper>
+\ No newline at end of file
+Index: build/classes/com/simpo/tracker/web/user/dao/UserDao.xml
+===================================================================
+diff --git a/build/classes/com/simpo/tracker/web/user/dao/UserDao.xml b/build/classes/com/simpo/tracker/web/user/dao/UserDao.xml
+deleted file mode 100644
+--- a/build/classes/com/simpo/tracker/web/user/dao/UserDao.xml	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,51 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<!-- 
+-	namespace：必须与对应的接口全类名一致
+-	id:必须与对应接口的某个对应的方法名一致
+-	
+- -->
+-<mapper namespace="com.simpo.tracker.web.user.dao.UserDao">
+-
+-    <select id="findInfoByLoginname" parameterType="String" resultType="com.simpo.tracker.web.user.entity.UserInfo">
+-        select u.*,r.permission,r.rolename from user_info u left join role_info r on r.id=u.roleid where
+-        u.loginname=#{loginname}
+-    </select>
+-
+-    <select id="findInfoById" parameterType="Long" resultType="com.simpo.tracker.web.user.entity.UserInfo">
+-        select t.* from user_info t where t.id=#{id}
+-    </select>
+-
+-    <update id="updateStatus">
+-        update user_info set status=#{1} where id=#{0}
+-    </update>
+-
+-    <update id="updatePwd">
+-        update user_info set password=#{1} where id=#{0}
+-    </update>
+-
+-    <insert id="add" parameterType="com.simpo.tracker.web.user.entity.UserInfo">
+-        insert into user_info (username,loginname,password,orgname,phone,remark,roleid)
+-        values (#{username},#{loginname},#{password},#{orgname},#{phone},#{remark},#{roleid})
+-    </insert>
+-
+-    <update id="update" parameterType="com.simpo.tracker.web.user.entity.UserInfo">
+-        update user_info set
+-        loginname=#{loginname},username=#{username},orgname=#{orgname},phone=#{phone},remark=#{remark},roleid=#{roleid}
+-        where id=#{id}
+-    </update>
+-
+-    <!-- 列表 -->
+-    <select id="list" resultType="com.simpo.tracker.web.user.entity.UserInfo"
+-            parameterType="com.simpo.tracker.web.user.entity.UserInfo">
+-        select t.*,r.permission,r.rolename from user_info t left join role_info r on r.id=t.roleid where 1=1
+-        <if test="username!=null and username!=''">and t.username like #{username}</if>
+-        order by t.loginname asc
+-    </select>
+-
+-    <select id="count" resultType="int" parameterType="com.simpo.tracker.web.user.entity.UserInfo">
+-        select count(1) from user_info t left join role_info r on r.id=t.roleid where 1=1
+-        <if test="username!=null and username!=''">and t.username like #{username}</if>
+-    </select>
+-</mapper>
+\ No newline at end of file
+Index: build/classes/com/simpo/tracker/web/product/dao/TkglDao.xml
+===================================================================
+diff --git a/build/classes/com/simpo/tracker/web/product/dao/TkglDao.xml b/build/classes/com/simpo/tracker/web/product/dao/TkglDao.xml
+deleted file mode 100644
+--- a/build/classes/com/simpo/tracker/web/product/dao/TkglDao.xml	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,39 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<!-- 
+-	namespace：必须与对应的接口全类名一致
+-	id:必须与对应接口的某个对应的方法名一致
+-	
+- -->
+-<mapper namespace="com.simpo.tracker.web.product.dao.TkglDao">
+-
+-    <select id="list" resultType="com.simpo.tracker.web.product.entity.TkglInfo"
+-            parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
+-        select r.* from tkgl_info r where r.xcid=#{xcid}
+-        <if test="filetype!=null and filetype!=''">and r.filetype = #{filetype}</if>
+-        order by r.cjsj desc
+-    </select>
+-
+-    <select id="count" resultType="int" parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
+-        select count(1) from tkgl_info r where r.xcid=#{xcid}
+-        <if test="filetype!=null and filetype!=''">and r.filetype = #{filetype}</if>
+-    </select>
+-
+-    <select id="findInfoById" parameterType="Long" resultType="com.simpo.tracker.web.product.entity.TkglInfo">
+-        select * from tkgl_info where id=#{id}
+-    </select>
+-
+-    <insert id="add" parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
+-        insert into tkgl_info (xcid,tkseq,tkpic,cjsj,filetype,videopath,videoname)
+-        values (#{xcid},#{tkseq},#{tkpic},#{cjsj},#{filetype},#{videopath},#{videoname})
+-    </insert>
+-
+-    <delete id="delete">
+-        delete from tkgl_info where id=#{id}
+-    </delete>
+-
+-    <update id="updateVideo" parameterType="com.simpo.tracker.web.product.entity.TkglInfo">
+-        update tkgl_info set videopath=#{videopath},videoname=#{videoname} where id=#{id}
+-    </update>
+-</mapper>
+\ No newline at end of file
+Index: build/classes/config/mybatis-config.xml
+===================================================================
+diff --git a/build/classes/config/mybatis-config.xml b/build/classes/config/mybatis-config.xml
+deleted file mode 100644
+--- a/build/classes/config/mybatis-config.xml	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,57 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+-        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+-<configuration>
+-    <!--
+-    plugins在配置文件中的位置必须符合要求，否则会报错，顺序如下:
+-    properties?, settings?, 
+-    typeAliases?, typeHandlers?, 
+-    objectFactory?,objectWrapperFactory?, 
+-    plugins?, 
+-    environments?, databaseIdProvider?, mappers? 
+-    -->
+-
+-    <!-- 实体类,简称 -设置别名 -->
+-    <typeAliases>
+-        <!--
+-        <typeAlias alias="UserInfo" type="com.fwaq.web.xtyhgl.entity.UserInfo" />
+-         -->
+-    </typeAliases>
+-    <!-- 实体接口映射资源 -->
+-
+-    <plugins>
+-        <!-- com.github.pagehelper为PageHelper类所在包名 :http://git.oschina.net/free/Mybatis_PageHelper/blob/master/wikis/HowToUse.markdown -->
+-        <plugin interceptor="com.github.pagehelper.PageHelper">
+-            <!-- 4.0.0以后版本可以不设置该参数 :oracle,mysql,mariadb,sqlite,hsqldb,postgresql,db2,sqlserver,informix,h2,sqlserver2012-->
+-            <property name="dialect" value="mysql"/>
+-            <!-- 该参数默认为false -->
+-            <!-- 设置为true时，会将RowBounds第一个参数offset当成pageNum页码使用 -->
+-            <!-- 和startPage中的pageNum效果一样 -->
+-            <property name="offsetAsPageNum" value="true"/>
+-            <!-- 该参数默认为false -->
+-            <!-- 设置为true时，使用RowBounds分页会进行count查询 -->
+-            <property name="rowBoundsWithCount" value="true"/>
+-            <!-- 设置为true时，如果pageSize=0或者RowBounds.limit = 0就会查询出全部的结果 -->
+-            <!-- （相当于没有执行分页查询，但是返回结果仍然是Page类型） -->
+-            <property name="pageSizeZero" value="false"/>
+-            <!-- 3.3.0版本可用 - 分页参数合理化，默认false禁用 -->
+-            <!-- 启用合理化时，如果pageNum<1会查询第一页，如果pageNum>pages会查询最后一页 -->
+-            <!-- 禁用合理化时，如果pageNum<1或pageNum>pages会返回空数据 -->
+-            <property name="reasonable" value="false"/>
+-            <!-- 支持通过Mapper接口参数来传递分页参数 -->
+-            <property name="supportMethodsArguments" value="false"/>
+-            <!-- always总是返回PageInfo类型,check检查返回类型是否为PageInfo,none返回Page -->
+-            <property name="returnPageInfo" value="none"/>
+-        </plugin>
+-    </plugins>
+-
+-    <!--
+-        说明：如果xxMapper.xml配置文件放在和xxMapper.java统一目录下，mappers也可以省略，因为org.mybatis.spring.mapper.MapperFactoryBean默认会去查找与xxMapper.java相同目录和名称的xxMapper.xml
+-    -->
+-    <mappers>
+-        <!--
+-        <mapper resource="com/fwaq/web/xtyhgl/dao/xtgl_xtyhgl_dao.xml" />
+-         -->
+-    </mappers>
+-
+-</configuration>  
+\ No newline at end of file
+Index: build/classes/com/simpo/tracker/common/system.properties
+===================================================================
+diff --git a/build/classes/com/simpo/tracker/common/system.properties b/build/classes/com/simpo/tracker/common/system.properties
+deleted file mode 100644
+--- a/build/classes/com/simpo/tracker/common/system.properties	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,1 +0,0 @@
+-bakPath=D\:\\attachment\\awt
+Index: build/classes/config/spring-common.xml
+===================================================================
+diff --git a/build/classes/config/spring-common.xml b/build/classes/config/spring-common.xml
+deleted file mode 100644
+--- a/build/classes/config/spring-common.xml	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,68 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<beans xmlns="http://www.springframework.org/schema/beans"
+-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+-       xmlns:context="http://www.springframework.org/schema/context" xmlns:tx="http://www.springframework.org/schema/tx"
+-       xmlns:aop="http://www.springframework.org/schema/aop"
+-       xsi:schemaLocation="
+-		http://www.springframework.org/schema/beans
+-		http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+-		http://www.springframework.org/schema/context
+-		http://www.springframework.org/schema/context/spring-context-4.0.xsd
+-		http://www.springframework.org/schema/aop     
+-		http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+-		http://www.springframework.org/schema/tx
+-		http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+-
+-    <!-- 1. 数据源 : DriverManagerDataSource -->
+-    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+-        <property name="url"
+-                  value="jdbc:mysql://127.0.0.1:3306/awt?userUnicode=true&amp;characterEncoding=utf-8&amp;allowMultiQueries=true"/>
+-        <property name="username" value="root"/>
+-        <property name="password" value="1"/>
+-    </bean>
+-
+-    <!--
+-        2. mybatis的SqlSession的工厂: SqlSessionFactoryBean dataSource:引用数据源
+-
+-        MyBatis定义数据源,同意加载配置
+-    -->
+-    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+-        <property name="dataSource" ref="dataSource"></property>
+-        <property name="configLocation" value="classpath:config/mybatis-config.xml"/>
+-        <!-- 		<property name="plugins">
+-                    <array>
+-                        <bean class="com.github.pagehelper.PageHelper">
+-                            <property name="properties">
+-                                  <value>
+-                                        dialect=sqlserver
+-                                 </value>
+-                            </property>
+-                          </bean>
+-                    </array>
+-                 </property> -->
+-    </bean>
+-
+-    <!--
+-        3. mybatis自动扫描加载Sql映射文件/接口 : MapperScannerConfigurer sqlSessionFactory
+-
+-        basePackage:指定sql映射文件/接口所在的包（自动扫描）,可指定多个包，包与包之间用逗号或分号分隔
+-    -->
+-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+-        <property name="basePackage" value="com.simpo.tracker.web.**.dao"></property>
+-        <property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
+-    </bean>
+-
+-    <!--
+-        4. 事务管理 : DataSourceTransactionManager dataSource:引用上面定义的数据源
+-    -->
+-    <bean id="txManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+-        <property name="dataSource" ref="dataSource"></property>
+-    </bean>
+-
+-    <!-- 5. 使用声明式事务
+-         transaction-manager：引用上面定义的事务管理器
+-     -->
+-    <tx:annotation-driven transaction-manager="txManager"/>
+-
+-</beans>
+Index: build/classes/config/spring-mvc.xml
+===================================================================
+diff --git a/build/classes/config/spring-mvc.xml b/build/classes/config/spring-mvc.xml
+deleted file mode 100644
+--- a/build/classes/config/spring-mvc.xml	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,54 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:aop="http://www.springframework.org/schema/aop"
+-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+-       xmlns:context="http://www.springframework.org/schema/context"
+-       xmlns:mvc="http://www.springframework.org/schema/mvc"
+-       xsi:schemaLocation="http://www.springframework.org/schema/beans
+-	http://www.springframework.org/schema/beans/spring-beans.xsd
+-	http://www.springframework.org/schema/context
+-	http://www.springframework.org/schema/context/spring-context-4.0.xsd
+-	http://www.springframework.org/schema/aop     
+-	http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+-	http://www.springframework.org/schema/mvc
+-	http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd"
+->
+-
+-    <!-- 注解扫描包 -->
+-    <context:component-scan base-package="com.simpo.tracker.web.*;com.simpo.tracker.frame.*"/>
+-
+-    <!-- 开启注解 -->
+-    <mvc:annotation-driven conversion-service="conversionService"/>
+-    <!--通知spring使用cglib而不是jdk的来生成代理方法 AOP可以拦截到Controller-->
+-    <aop:aspectj-autoproxy proxy-target-class="true"/>
+-
+-    <!--
+-        配置静态资源，直接映射到对应的文件夹，不被DispatcherServlet处理，3.04新增功能，需要重新设置spring-mvc-3.0.xsd
+-    -->
+-    <mvc:resources mapping="/bgui/**" location="/bgui/"/>
+-    <mvc:resources mapping="/awt/**" location="/awt/"/>
+-    <mvc:resources mapping="/system/login/**" location="/system/login/"/>
+-    <mvc:resources mapping="/system/main/**" location="/system/main/"/>
+-
+-    <!-- 定义跳转的文件的前后缀 ，视图模式配置
+-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+-    <!-- 这里的配置我的理解是自动给后面action的方法return的字符串加上前缀和后缀，变成一个 可用的url地址
+-    <property name="prefix" value="/page/" />
+-    <property name="suffix" value=".jsp" />
+-</bean>-->
+-
+-    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+-        <property name="defaultEncoding" value="utf-8"></property>
+-        <property name="maxUploadSize" value="10485760000"></property>
+-    </bean>
+-
+-    <!-- 自定义类型转换 -->
+-    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+-        <property name="converters">
+-            <list>
+-                <bean class="com.simpo.tracker.common.converter.DoubleConverter"/>
+-                <bean class="com.simpo.tracker.common.converter.IntegerConverter"/>
+-                <bean class="com.simpo.tracker.common.converter.LongConverter"/>
+-            </list>
+-        </property>
+-    </bean>
+-</beans>
+Index: build/classes/com/simpo/tracker/web/product/dao/XcglDao.xml
+===================================================================
+diff --git a/build/classes/com/simpo/tracker/web/product/dao/XcglDao.xml b/build/classes/com/simpo/tracker/web/product/dao/XcglDao.xml
+deleted file mode 100644
+--- a/build/classes/com/simpo/tracker/web/product/dao/XcglDao.xml	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
++++ /dev/null	(revision c28430afc4e3f33d2a885fd98ee2b25d8347cd80)
+@@ -1,46 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+-<!-- 
+-	namespace：必须与对应的接口全类名一致
+-	id:必须与对应接口的某个对应的方法名一致
+-	
+- -->
+-<mapper namespace="com.simpo.tracker.web.product.dao.XcglDao">
+-
+-    <select id="list" resultType="com.simpo.tracker.web.product.entity.XcglInfo"
+-            parameterType="com.simpo.tracker.web.product.entity.XcglInfo">
+-        select r.* from xcgl_info r where 1=1
+-        <if test="xcmc!=null and xcmc!=''">and r.xcmc like #{xcmc}</if>
+-        order by r.xcseq desc
+-    </select>
+-
+-    <select id="count" resultType="int" parameterType="com.simpo.tracker.web.product.entity.XcglInfo">
+-        select count(1) from xcgl_info r where 1=1
+-        <if test="xcmc!=null and xcmc!=''">and r.xcmc like #{xcmc}</if>
+-    </select>
+-
+-    <select id="findInfoById" parameterType="Long" resultType="com.simpo.tracker.web.product.entity.XcglInfo">
+-        select * from xcgl_info where id=#{id}
+-    </select>
+-
+-    <insert id="add" parameterType="com.simpo.tracker.web.product.entity.XcglInfo">
+-        insert into xcgl_info (xcmc,remark,zt,xcseq,pic,cjsj)
+-        values (#{xcmc},#{remark},#{zt},#{xcseq},#{pic},#{cjsj})
+-    </insert>
+-
+-    <delete id="delete">
+-        delete from xcgl_info where id=#{id};
+-        delete from tkgl_info where xcid=#{id};
+-    </delete>
+-
+-    <update id="update" parameterType="com.simpo.tracker.web.product.entity.XcglInfo">
+-        update xcgl_info set xcmc=#{xcmc},remark=#{remark},zt=#{zt},xcseq=#{xcseq},pic=#{pic},gxsj=#{gxsj} where
+-        id=#{id}
+-    </update>
+-
+-    <update id="updatePic">
+-        update xcgl_info set pic=#{pic} where id=#{id}
+-    </update>
+-
+-</mapper>
+\ No newline at end of file
