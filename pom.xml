@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>cn.com.yuke</groupId>
-    <artifactId>springbootinit</artifactId>
+    <artifactId>awt</artifactId>
     <version>1.0.0</version>
-    <name>springbootinit</name>
+    <name>awt</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>1.8</java.version>
