@@ -12,7 +12,7 @@
     <artifactId>awt</artifactId>
     <version>1.0.0</version>
     <name>awt</name>
-    <description>Demo project for Spring Boot</description>
+    <description>awt</description>
     <properties>
         <java.version>1.8</java.version>
     </properties>
