@@ -1,5 +1,6 @@
 package cn.com.yuke.springbootinit.controller;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -8,12 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0
  * @date 2021/1/29 11:41
  */
-@RestController
-@RequestMapping("index111")
-public class IndexController {
+@Controller
+public class HtmlController {
 
     @RequestMapping("start")
-    public String index(){
-        return "index start111";
+    public String start(){
+        return "html/index";
     }
 }
