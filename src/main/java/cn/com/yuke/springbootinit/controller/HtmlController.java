@@ -14,6 +14,6 @@ public class HtmlController {
 
     @RequestMapping("start")
     public String start(){
-        return "";
+        return "html/index";
     }
 }
