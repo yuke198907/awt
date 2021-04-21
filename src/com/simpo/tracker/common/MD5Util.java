@@ -25,6 +25,7 @@ public class MD5Util {
     private static String bytes2Hex(byte[] bts) {
         StringBuffer des = new StringBuffer();
         String tmp = "";
+
         for (int i = 0; i < bts.length; i++) {
             tmp = (Integer.toHexString(bts[i] & 0xFF));
             if (tmp.length() == 1) {
