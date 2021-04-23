@@ -34,6 +34,7 @@ public class DateTools {
         Date date = null;
         try {
             date = sdf.parse(dateString);
+
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
