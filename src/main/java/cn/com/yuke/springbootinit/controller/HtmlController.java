@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @version 1.0
  * @date 2021/1/29 11:41
  */
-@Controller
+@RestController
 public class HtmlController {
 
     @RequestMapping("start")
