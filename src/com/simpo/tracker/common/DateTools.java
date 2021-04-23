@@ -11,7 +11,7 @@ import java.util.Date;
 public class DateTools {
 
     /**
-     * 根据日期及格式format获取日期字符串
+     * 根据日期及格式获取日期字符串
      *
      * @param date
      * @param format
@@ -23,7 +23,7 @@ public class DateTools {
     }
 
     /**
-     * 根据日期字符串及格式format获取日期
+     * 根据日期字符串及格式获取日期
      *
      * @param dateString
      * @param format
@@ -34,7 +34,6 @@ public class DateTools {
         Date date = null;
         try {
             date = sdf.parse(dateString);
-
         } catch (ParseException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
