@@ -19,7 +19,7 @@
             <div class="row">
                 <div class="col-sm-12">
                     <aside>
-                        <header><i class="fa fa-fw fa-file"></i>系统用户管理</header>
+                        <header><i class="fa fa-fw fa-file"></i>用户管理</header>
                         <section>
                             <div class="container-fluid">
                                 <div class="row">
