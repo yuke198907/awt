@@ -41,7 +41,7 @@
                 <div class="col-sm-12">
                     <aside>
                         <header><i class="fa fa-fw fa-file"></i>上传相册图片
-                            <button type="button" onclick="back();" class="btn btn-warning">返回列表</button>
+                            <button type="button" onclick="back();" class="btn btn-warning"> 返回列表</button>
                         </header>
                         <section>
                             <div class="container-fluid">
