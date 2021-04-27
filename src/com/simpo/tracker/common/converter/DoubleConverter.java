@@ -3,6 +3,9 @@ package com.simpo.tracker.common.converter;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.core.convert.converter.Converter;
 
+/**
+ * @author yu
+ */
 public class DoubleConverter implements Converter<String, Double> {
 
     @Override
