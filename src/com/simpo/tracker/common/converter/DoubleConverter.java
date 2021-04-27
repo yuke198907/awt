@@ -7,7 +7,6 @@ public class DoubleConverter implements Converter<String, Double> {
 
     @Override
     public Double convert(String param) {
-        // TODO Auto-generated method stub
         if (!StringUtils.isBlank(param)) {
             return Double.valueOf(param);
         }
