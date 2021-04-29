@@ -16,7 +16,7 @@
 <body>
 <div class="page">
     <div class="loginwarrp">
-        <div class="logo">相册管理系统</div>
+        <div class="logo">PHOTO管理系统</div>
         <div class="login_form">
             <form method="post" action="<%=contextPath%>/system/login.do">
                 <li class="login-item">
