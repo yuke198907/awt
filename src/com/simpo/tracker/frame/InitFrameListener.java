@@ -33,7 +33,7 @@ public class InitFrameListener implements ApplicationContextAware, ServletContex
     @Override
     public void setServletContext(ServletContext sc) {
         // TODO Auto-generated method stub
-        //System.out.println("3333---"+sc.toString());
+        System.out.println("3333---"+sc.toString());
     }
 
     @Override
