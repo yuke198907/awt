@@ -12,7 +12,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <div role="alert">
-                                        相册管理系统
+                                        信息管理系统
                                         <br/><br/>
                                     </div>
                                 </div>
