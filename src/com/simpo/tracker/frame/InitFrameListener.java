@@ -21,7 +21,7 @@ public class InitFrameListener implements ApplicationContextAware, ServletContex
     @Override
     public void onApplicationEvent(ContextRefreshedEvent cre) {
         // TODO Auto-generated method stub
-        //System.out.println("1111---"+cre.toString());
+        System.out.println("1111---"+cre.toString());
     }
 
     @Override
