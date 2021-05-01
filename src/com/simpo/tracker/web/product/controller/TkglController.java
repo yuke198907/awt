@@ -47,7 +47,7 @@ public class TkglController {
         List<TkglInfo> list = tkglService.list(null, null, false, info);
         JSONArray json = JSONArray.fromObject(list);
 
-        //int count =tkglService.count(info);
+        int count =tkglService.count(info);
 
         output = "{\"totalRows\":" + (list == null ? 0 : list.size()) + ",\"rows\":" + json.toString() + "}";
         SystemUtil.writeJson(output, response);
