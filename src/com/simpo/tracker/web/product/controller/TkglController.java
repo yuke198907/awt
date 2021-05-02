@@ -47,7 +47,7 @@ public class TkglController {
         List<TkglInfo> list = tkglService.list(null, null, false, info);
         JSONArray json = JSONArray.fromObject(list);
 
-        int count =tkglService.count(info);
+        //int count =tkglService.count(info);
 
         output = "{\"totalRows\":" + (list == null ? 0 : list.size()) + ",\"rows\":" + json.toString() + "}";
         SystemUtil.writeJson(output, response);
@@ -60,7 +60,6 @@ public class TkglController {
         TkglInfo info = tkglService.findInfoById(Long.valueOf(id));
         int row = tkglService.delete(Long.valueOf(id));
         if (row == 1) {
-
             if ("1".equals(info.getFiletype())) {
                 deleteFile(request.getSession().getServletContext().getRealPath("/awt/" + info.getXcid() + "/") + info.getTkpic());
                 deleteFile(bakPath + "/awt/" + info.getXcid() + "/" + info.getTkpic());//删除缩略图备份
@@ -68,7 +67,6 @@ public class TkglController {
                 deleteFile(request.getSession().getServletContext().getRealPath("/awt/" + info.getXcid() + "/") + info.getTkpic());
                 deleteFile(bakPath + "/awt/" + info.getXcid() + "/" + info.getTkpic());//删除备份
             }
-
         }
 
         SystemUtil.writeHTML(row + "", response);
