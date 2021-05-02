@@ -34,7 +34,6 @@ public class SystemController {
      * @return
      */
     @RequestMapping("/login.do")
-    //@SystemControllerLog(description="用户登录")
     public String login(String loginname, String pwd, HttpServletRequest request, HttpServletResponse response) {
         String result = "";
 
