@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserInfo> list(String pageNo, String pageSize, UserInfo info) {
         // TODO Auto-generated method stub
-        //PageHelper.startPage(IntegerTools.parseInt(pageNo),IntegerTools.parseInt(pageSize));
+        PageHelper.startPage(IntegerTools.parseInt(pageNo),IntegerTools.parseInt(pageSize));
         return userDao.list(info);
     }
 
