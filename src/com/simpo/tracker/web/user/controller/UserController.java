@@ -84,9 +84,9 @@ public class UserController {
         int row = userService.updatePwd(Long.valueOf(id), MD5Util.MD5("000000"));
         SystemUtil.writeHTML(row + "", response);
     }
-	
+
 	/*@RequestMapping("/add.do")
-	@SystemControllerLog(description = "用户管理/新增信息")  
+	@SystemControllerLog(description = "用户管理/新增信息")
 	public void add(UserInfo info, HttpServletRequest request, HttpServletResponse response){
 		//username,loginname,password,orgname,phone,remark
 		*//*String username = request.getParameter("username");
@@ -94,16 +94,16 @@ public class UserController {
 		String orgname = request.getParameter("orgname");
 		String phone = request.getParameter("phone");
 		String remark = request.getParameter("remark");
-		
+
 		UserInfo info = new UserInfo();
-		
+
 		info.setLoginname(loginname);
 		info.setOrgname(orgname);
 		info.setPhone(phone);
 		info.setUsername(username);
 		info.setRemark(remark);*//*
 		info.setPassword(MD5Util.MD5("000000"));
-		
+
 		int row = userService.add(info);
 		SystemUtil.writeHTML(row+"", response);
 	}*/
@@ -114,10 +114,8 @@ public class UserController {
         int row = 0;
 
         if (info.getId() > 0) {
-
             row = userService.update(info);
         } else {
-
             info.setPassword(MD5Util.MD5("000000"));
             row = userService.add(info);
         }
