@@ -1,6 +1,5 @@
 ﻿<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <jsp:directive.page import="com.simpo.tracker.web.product.entity.XcglInfo"/>
-<jsp:directive.page import="java.util.List"/>
 <%@ include file="common/includes.jsp" %>
 <%
     XcglInfo info = (XcglInfo) request.getAttribute("info");
