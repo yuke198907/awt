@@ -11,7 +11,6 @@
     <link rel="stylesheet" href="<%=contextPath %>/bgui/public/css/vendor/font_awesome/css/font-awesome.css">
     <script src="<%=contextPath %>/bgui/public/js/vendor/jquery.min.js"></script>
 
-
     <div class="content_wrapper">
 
         <div class="container-fluid">
