@@ -35,8 +35,7 @@
                             <div class="row">
                                 <div class="col-sm-12">
                                     <form class="form-horizontal" role="form" id="form1" method="post" action="">
-                                        <div class="title_bar">编辑用户<input type="hidden" value="<%=info.getId() %>"
-                                                                          name="id"/></div>
+                                        <div class="title_bar">编辑用户<input type="hidden" value="<%=info.getId() %>" name="id"/></div>
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">登录名</label>
                                             <div class="col-sm-4">
