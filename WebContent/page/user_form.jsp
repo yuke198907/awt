@@ -116,10 +116,7 @@
         if (username == "" || loginname == "") {
             alert("登录名或用户名为空，请检查！");
         } else {
-            //var str="";
-
             $('input[name="roles"]:checked').each(function () {
-                //str+=$(this).val();
                 $("#roleid").val($(this).val());
             });
 
