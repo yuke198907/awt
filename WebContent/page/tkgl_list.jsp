@@ -116,10 +116,6 @@
             }
         }
 
-        /*function editOne(id){
-            loadURL("/tkgl/find.do?id="+id);
-        }*/
-
         function back() {
             loadURL("/page/xcgl_list.jsp");
         }
