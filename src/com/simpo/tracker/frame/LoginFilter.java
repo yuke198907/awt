@@ -34,7 +34,6 @@ public class LoginFilter implements Filter {
         String ctxPath = req.getContextPath();
         // 去除上下文路径，得到剩余部分的路径
         String uri = request_uri.substring(ctxPath.length());
-        //System.out.println(uri + req.getParameter("method"));
 
         UserInfo user = (UserInfo) req.getSession().getAttribute("USERINFO");
 
