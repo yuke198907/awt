@@ -47,7 +47,7 @@ public class LoginFilter implements Filter {
                 }
                 return;
             } else {
-
+                //排除登录
                 if ((uri.endsWith(".do") || uri.endsWith(".jsp"))) {
                     resp.setContentType("text/html; charset=UTF-8");
                     StringBuffer result = new StringBuffer();
