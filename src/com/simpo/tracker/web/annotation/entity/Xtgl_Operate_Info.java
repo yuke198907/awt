@@ -16,7 +16,7 @@ public class Xtgl_Operate_Info {
     private String method;//方法名
     private String description;//方法描述
 
-    private String username;
+    private String username;//操作人
 
     public long getId() {
         return id;
