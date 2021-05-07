@@ -37,11 +37,10 @@ public class SystemLogAspect {
     //本地异常日志记录对象
     private static Log logger = LogFactory.getLog(SystemLogAspect.class);
 
-    //Controller层切点    
+    //Controller层切点
     @Pointcut("@annotation(com.simpo.tracker.web.annotation.SystemControllerLog)")
     public void controllerAspect() {
     }
-
 
     /**
      * 前置通知 用于拦截Controller层记录用户的操作
@@ -79,18 +78,18 @@ public class SystemLogAspect {
 
 
     /**
-     * 异常通知 用于拦截service层记录异常日志  
+     * 异常通知 用于拦截service层记录异常日志
      *
      * @param joinPoint
      * @param e
-     *//*    
-    @AfterThrowing(pointcut = "serviceAspect()", throwing = "e")    
-    public void doAfterThrowing(JoinPoint joinPoint, Throwable e) {    
-        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();    
-        HttpSession session = request.getSession();    
-        //读取session中的用户    
+     *//*
+    @AfterThrowing(pointcut = "serviceAspect()", throwing = "e")
+    public void doAfterThrowing(JoinPoint joinPoint, Throwable e) {
+        HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+        HttpSession session = request.getSession();
+        //读取session中的用户
         UserInfo user = (UserInfo) session.getAttribute("USERINFO");
-        String params = "";    
+        String params = "";
 		if (joinPoint.getArgs() != null && joinPoint.getArgs().length > 0) {
 			for (int i = 0; i < joinPoint.getArgs().length; i++) {
 				//System.out.println("joinPoint.getArgs()[i]" + joinPoint.getArgs()[i]);
@@ -98,14 +97,14 @@ public class SystemLogAspect {
 			}
 		}
 		try {
-			 ========控制台输出========= 
+			 ========控制台输出=========
 			//System.out.println("=====异常通知开始=====");
 			//System.out.println("异常代码:" + e.getClass().getName());
 			//System.out.println("异常信息:" + e.getMessage());
 			//System.out.println("异常方法:" + (joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
 			//System.out.println("方法描述:" + getServiceMthodDescription(joinPoint));
 			//System.out.println("请求参数:" + params);
-			 ==========数据库日志========= 
+			 ==========数据库日志=========
 			Xtgl_Operate_Info log = new Xtgl_Operate_Info();
 			log.setDescription(getServiceMthodDescription(joinPoint));
 			log.setMethod((joinPoint.getTarget().getClass().getName() + "." + joinPoint.getSignature().getName() + "()"));
@@ -129,35 +128,35 @@ public class SystemLogAspect {
 			logger.error("==异常通知异常==");
 			logger.error("异常信息:{}" + ex.getMessage());
 		}
-         ==========记录本地异常日志==========    
+         ==========记录本地异常日志==========
         logger.error("异常方法:{}异常代码:{}异常信息:{}参数:{}"+joinPoint.getTarget().getClass().getName() + joinPoint.getSignature().getName()+e.getClass().getName()+e.getMessage()+params);
     }*/
 
     /**
-     * 获取注解中对方法的描述信息 用于service层注解  
+     * 获取注解中对方法的描述信息 用于service层注解
      *
-     * @param joinPoint 切点  
+     * @param joinPoint 切点
      * @return 方法描述
      * @throws Exception
-     */    
-     /*public  static String getServiceMthodDescription(JoinPoint joinPoint)    
-             throws Exception {     
-        String targetName = joinPoint.getTarget().getClass().getName();    
-        String methodName = joinPoint.getSignature().getName();    
-        Object[] arguments = joinPoint.getArgs();    
-        Class targetClass = Class.forName(targetName);    
-        Method[] methods = targetClass.getMethods();    
-        String description = "";    
-         for (Method method : methods) {    
-             if (method.getName().equals(methodName)) {    
-                Class[] clazzs = method.getParameterTypes();    
-                 if (clazzs.length == arguments.length) {    
-                    description = method.getAnnotation(SystemServiceLog.class).description();    
-                     break;    
-                }    
-            }    
-        }    
-         return description;    
+     */
+     /*public  static String getServiceMthodDescription(JoinPoint joinPoint)
+             throws Exception {
+        String targetName = joinPoint.getTarget().getClass().getName();
+        String methodName = joinPoint.getSignature().getName();
+        Object[] arguments = joinPoint.getArgs();
+        Class targetClass = Class.forName(targetName);
+        Method[] methods = targetClass.getMethods();
+        String description = "";
+         for (Method method : methods) {
+             if (method.getName().equals(methodName)) {
+                Class[] clazzs = method.getParameterTypes();
+                 if (clazzs.length == arguments.length) {
+                    description = method.getAnnotation(SystemServiceLog.class).description();
+                     break;
+                }
+            }
+        }
+         return description;
     }*/
 
     /**
