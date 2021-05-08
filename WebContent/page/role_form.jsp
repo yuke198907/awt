@@ -11,7 +11,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <title></title>
+    <title>角色管理</title>
     <link rel="stylesheet" href="<%=contextPath %>/bgui/public/css/vendor/bootstrap/dist/bootstrap.css">
     <link rel="stylesheet" href="<%=contextPath %>/bgui/public/css/vendor/Animate.css">
     <link rel="stylesheet" href="<%=contextPath %>/bgui/public/css/basic.css">
