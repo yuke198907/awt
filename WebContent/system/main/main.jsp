@@ -92,7 +92,9 @@
      aria-hidden="true">
     <div class="modal-dialog modal-sm">
         <div class="modal-content">
-            <div class="modal-body"></div>
+            <div class="modal-body">
+
+            </div>
             <div class="modal-footer" style="text-align:center;">
                 <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
                 <button type="button" class="btn btn-danger J_confirm_btn"><i class="fa fa-refresh fa-spin"></i> 确定
