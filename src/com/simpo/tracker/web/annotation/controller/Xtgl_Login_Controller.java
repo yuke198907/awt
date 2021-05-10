@@ -38,8 +38,6 @@ public class Xtgl_Login_Controller {
         String pageNo = request.getParameter("start");
         String pageSize = request.getParameter("length");
 
-        //UserInfo user = (UserInfo) request.getSession().getAttribute("USERINFO");
-
         if (pageNo == null) {
             pageNo = PagerUtils.pageNo;
         }
