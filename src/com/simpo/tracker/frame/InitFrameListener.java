@@ -40,7 +40,7 @@ public class InitFrameListener implements ApplicationContextAware, ServletContex
     public void setApplicationContext(ApplicationContext ac)
             throws BeansException {
         // TODO Auto-generated method stub
-
+        System.out.println("444---");
     }
 
 }
