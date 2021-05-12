@@ -24,6 +24,7 @@ public class RoleServiceImpl implements RoleService {
     public List<RoleInfo> list(boolean ispage, String pageNo, String pageSize, RoleInfo info) {
         // TODO Auto-generated method stub
         if (ispage) {
+            //分页
             PageHelper.startPage(IntegerTools.parseInt(pageNo), IntegerTools.parseInt(pageSize));
         }
         return roleDao.list(info);
