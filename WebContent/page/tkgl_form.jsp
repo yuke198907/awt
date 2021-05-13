@@ -21,8 +21,7 @@
     <link rel="stylesheet" href="<%=contextPath %>/bgui/public/css/vendor/font_awesome/css/font-awesome.css">
     <script src="<%=contextPath %>/bgui/public/js/vendor/jquery.min.js"></script>
 
-    <link rel="stylesheet"
-          href="<%=contextPath %>/bgui/public/js/vendor/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css">
+    <link rel="stylesheet" href="<%=contextPath %>/bgui/public/js/vendor/bootstrap-datepicker/css/bootstrap-datepicker.standalone.min.css">
     <script src="<%=contextPath %>/bgui/public/js/vendor/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
     <script src="<%=contextPath %>/bgui/public/js/vendor/bootstrap-datepicker/locales/bootstrap-datepicker.zh-CN.min.js"></script>
 
