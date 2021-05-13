@@ -81,7 +81,7 @@ public class UserController {
     public void remark(HttpServletRequest request, HttpServletResponse response) {
         String id = request.getParameter("id");
         //UserInfo info = userService.findInfoById(Long.valueOf(id));
-        int row = userService.updatePwd(Long.valueOf(id), MD5Util.MD5("000000"));
+        int row = userService.updatePwd(Long.valueOf(id), MD5Util.MD5("111111"));
         SystemUtil.writeHTML(row + "", response);
     }
 
