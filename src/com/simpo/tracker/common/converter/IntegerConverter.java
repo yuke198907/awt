@@ -10,6 +10,7 @@ public class IntegerConverter implements Converter<String, Integer> {
     public Integer convert(String param) {
         // TODO Auto-generated method stub
         if (param != null && !"".equals(param)) {
+            //类型转义
             return IntegerTools.parseInt(param);
         }
         return 0;
