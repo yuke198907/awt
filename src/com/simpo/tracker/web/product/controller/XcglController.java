@@ -38,7 +38,7 @@ public class XcglController {
     private XcglService xcglService;
 
     @RequestMapping("/list.do")
-    @SystemControllerLog(description = "列表")
+    @SystemControllerLog(description = "相册管理/列表")
     public void list(XcglInfo info, HttpServletRequest request, HttpServletResponse response) {
         String pageNo = request.getParameter("start");
         String pageSize = request.getParameter("length");
