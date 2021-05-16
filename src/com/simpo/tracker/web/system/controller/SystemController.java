@@ -27,6 +27,9 @@ public class SystemController {
     @Autowired
     private Xtgl_Login_Service loginService;
 
+    private static final String Issuccess_0 = "0";
+    private static final String Issuccess_1 = "1";
+
     /**
      * 登录
      *
@@ -45,11 +48,11 @@ public class SystemController {
             login.setLoginname(loginname);
             login.setLogintime(new Date());
             login.setUserid(user.getId());
-            login.setIssuccess("0");
+            login.setIssuccess(Issuccess_0);
 
             if (user.getPassword().equals(MD5Util.MD5(pwd))) {
                 if ("0".equals(user.getStatus())) {
-                    login.setIssuccess("1");
+                    login.setIssuccess(Issuccess_1);
                     request.getSession().setAttribute("USERINFO", user);
                     result = "1";
                 } else {
