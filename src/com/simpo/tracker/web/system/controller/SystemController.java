@@ -48,12 +48,9 @@ public class SystemController {
             login.setIssuccess("0");
 
             if (user.getPassword().equals(MD5Util.MD5(pwd))) {
-
                 if ("0".equals(user.getStatus())) {
                     login.setIssuccess("1");
-
                     request.getSession().setAttribute("USERINFO", user);
-
                     result = "1";
                 } else {
                     result = "-2";
@@ -61,9 +58,7 @@ public class SystemController {
             } else {
                 result = "-1";
             }
-
             loginService.save(login);
-
         } else {
             result = "0";
         }
