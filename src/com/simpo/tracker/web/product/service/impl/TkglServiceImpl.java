@@ -22,7 +22,6 @@ public class TkglServiceImpl implements TkglService {
 
     @Override
     public List<TkglInfo> list(String pageNo, String pageSize, boolean isPage, TkglInfo info) {
-        // TODO Auto-generated method stub
         if (isPage) {
             PageHelper.startPage(IntegerTools.parseInt(pageNo), IntegerTools.parseInt(pageSize));
         }
@@ -31,13 +30,11 @@ public class TkglServiceImpl implements TkglService {
 
     @Override
     public int count(TkglInfo info) {
-        // TODO Auto-generated method stub
         return tkglDao.count(info);
     }
 
     @Override
     public TkglInfo findInfoById(long id) {
-        // TODO Auto-generated method stub
         if (id > 0) {
             return tkglDao.findInfoById(id);
         }
@@ -46,12 +43,10 @@ public class TkglServiceImpl implements TkglService {
 
     @Override
     public int add(TkglInfo info) {
-        // TODO Auto-generated method stub
         try {
             tkglDao.add(info);
             return 1;
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return 0;
@@ -59,12 +54,10 @@ public class TkglServiceImpl implements TkglService {
 
     @Override
     public int delete(long id) {
-        // TODO Auto-generated method stub
         try {
             tkglDao.delete(id);
             return 1;
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
         return 0;
