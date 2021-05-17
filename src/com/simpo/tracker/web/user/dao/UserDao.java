@@ -13,6 +13,7 @@ public interface UserDao {
     //条数查询
     public int count(UserInfo info);
 
+    //新增
     public void add(UserInfo info) throws Exception;
 
     public void update(UserInfo info) throws Exception;
