@@ -28,7 +28,7 @@ public class Xtgl_Login_ServiceImpl implements Xtgl_Login_Service {
     @Override
     public List<Xtgl_Login_Info> list(String pageNo, String pageSize, Xtgl_Login_Info info) {
         // TODO Auto-generated method stub
-        //PageHelper.startPage(IntegerTools.parseInt(pageNo),IntegerTools.parseInt(pageSize));
+        PageHelper.startPage(IntegerTools.parseInt(pageNo),IntegerTools.parseInt(pageSize));
         return loginDao.list(info);
     }
 
