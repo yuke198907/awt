@@ -77,6 +77,7 @@ public class LoginFilter implements Filter {
         }
     }
 
+    @Override
     public void init(FilterConfig config) throws ServletException {
         loginPath = config.getInitParameter("loginPath");
         loginAction = config.getInitParameter("loginAction");
