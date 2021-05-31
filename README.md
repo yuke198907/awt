@@ -9,7 +9,3 @@ SpringMVC+Spring+Mybatis框架整合简单示例，相册管理系统，提供�
 <br/>
 <br/>
 <br/>
-
-**感谢**
-<br/>
-<img width="100" height="100" src="https://github.com/yuke198907/awt/blob/master/WebContent/awt/jetbrains.png"/> &nbsp; &nbsp;<img width="100" height="100" src="https://github.com/yuke198907/awt/blob/master/WebContent/awt/BGUI.png"/>
