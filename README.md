@@ -4,4 +4,4 @@ SpringMVC+Spring+Mybatis框架整合简单示例，相册管理系统，提供�
 可以简单参考。
 
 #感谢
-![image](https://github.com/yuke198907/awt/blob/master/WebContent/awt/jetbrains.png)JetBrains
+<img width="150" height="150" src="https://github.com/yuke198907/awt/blob/master/WebContent/awt/jetbrains.png"/>
